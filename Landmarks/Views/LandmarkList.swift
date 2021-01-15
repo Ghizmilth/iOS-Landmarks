@@ -9,10 +9,18 @@ import SwiftUI
 
 struct LandmarkList: View {
     var body: some View {
-        // To create lists from collections, we provide a path to a property
-        // that uniquely identifies each element or by making the data conform to Identifiable
-        List(landmarks) { landmark in
-            LandmarkRow(landmark: landmark)
+       
+        //
+        NavigationView {
+            // To create lists from collections, we provide a path to a property
+            // that uniquely identifies each element or by making the data conform to Identifiable
+            List(landmarks) { landmark in
+                // this code connects this navigation view with the details of each row
+                NavigationLink(destination: LandmarkDetail()) {
+                    LandmarkRow(landmark: landmark)
+                }
+            }
+            .navigationTitle("Landmarks")
         }
     }
 }
