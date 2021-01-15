@@ -31,7 +31,7 @@ struct LandmarkList_Previews: PreviewProvider {
          */
         ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
             LandmarkList()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2ndgeneration"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation"))
                 .previewDisplayName(deviceName)
         }
     }
