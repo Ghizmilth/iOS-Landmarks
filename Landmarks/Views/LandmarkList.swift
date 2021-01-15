@@ -16,7 +16,7 @@ struct LandmarkList: View {
             // that uniquely identifies each element or by making the data conform to Identifiable
             List(landmarks) { landmark in
                 // this code connects this navigation view with the details of each row
-                NavigationLink(destination: LandmarkDetail()) {
+                NavigationLink(destination: LandmarkDetail(landmark: landmark)) {
                     LandmarkRow(landmark: landmark)
                 }
             }
