@@ -11,7 +11,7 @@ import CoreLocation //property that is useful to interact with MapKit framework
 
 // Codabe allows us to get load data into the sttructure from a data file in an easier way
 // This struct is related to the data that comes from the .json file
-struct Landmark: Hashable, Codable {
+struct Landmark: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var park: String

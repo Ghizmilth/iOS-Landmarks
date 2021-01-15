@@ -9,9 +9,10 @@ import SwiftUI
 
 struct LandmarkList: View {
     var body: some View {
-        List {
-            LandmarkRow(landmark: landmarks[0])
-            LandmarkRow(landmark: landmarks[1])
+        // To create lists from collections, we provide a path to a property
+        // that uniquely identifies each element or by making the data conform to Identifiable
+        List(landmarks) { landmark in
+            LandmarkRow(landmark: landmark)
         }
     }
 }
