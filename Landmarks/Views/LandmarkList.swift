@@ -8,14 +8,31 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    
+    // This is to declare a State that changes in this view
+    @State private var showFavoritesOnly = false
+    
+    // filtered version of the landmarks list
+    var filteredLandmarks:[Landmark] {
+        landmarks.filter { landmark in
+            (!showFavoritesOnly || landmark.isFavorite)
+        }
+    }
+    
     var body: some View {
         NavigationView {
             // To create lists from collections, we provide a path to a property
             // that uniquely identifies each element or by making the data conform to Identifiable
-            List(landmarks) { landmark in
+            List {
+                Toggle(isOn: $showFavoritesOnly) {
+                    Text("Favorites only")
+                }
+                
+                ForEach(filteredLandmarks) { landmark in
                 // this code connects this navigation view with the details of each row
-                NavigationLink(destination: LandmarkDetail(landmark: landmark)) {
-                    LandmarkRow(landmark: landmark)
+                    NavigationLink(destination: LandmarkDetail(landmark: landmark)) {
+                        LandmarkRow(landmark: landmark)
+                    }
                 }
             }
             .navigationTitle("Landmarks")
@@ -29,10 +46,10 @@ struct LandmarkList_Previews: PreviewProvider {
           When the elements of your data are simple value types — like the strings you’re using here — you can use
           \.self as key path to the identifier.
          */
-        ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
+//        ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
             LandmarkList()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation"))
-                .previewDisplayName(deviceName)
-        }
+//                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation"))
+//                .previewDisplayName(deviceName)
+//        }
     }
 }
