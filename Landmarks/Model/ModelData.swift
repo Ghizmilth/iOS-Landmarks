@@ -6,9 +6,15 @@
 //
 
 import Foundation
+import Combine
 
-// this is an array of landmarks that come from the .JSON file and it requests data using Landmark.swift struct
-var landmarks: [Landmark] = load("landmarkData.json")
+final class ModelData: ObservableObject {
+    // this is an array of landmarks that come from the .JSON file and it requests data using Landmark.swift struct
+    // @Published is for the changes to be publish when data changes so the subscribers can pick up the change
+    @Published var landmarks: [Landmark] = load("landmarkData.json")
+}
+
+
 
 // load(_:) method that fetches JSON  data with a given name from the app's main bundle
 func load<T: Decodable>(_ filename: String) -> T {
