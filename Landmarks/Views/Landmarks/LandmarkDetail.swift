@@ -38,7 +38,7 @@ struct LandmarkDetail: View {
                 
                 
                 HStack {
-                    Text(landmark.park)
+                    Text(verbatim: landmark.park)
                     Spacer()
                     Text(landmark.state)
                 }
