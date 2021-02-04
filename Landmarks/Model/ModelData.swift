@@ -12,6 +12,7 @@ final class ModelData: ObservableObject {
     // this is an array of landmarks that come from the .JSON file and it requests data using Landmark.swift struct
     // @Published is for the changes to be publish when data changes so the subscribers can pick up the change
     @Published var landmarks: [Landmark] = load("landmarkData.json")
+    var hikes: [Hike] = load("hikeData.json")
 }
 
 
@@ -21,8 +22,8 @@ func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-    else {
-        fatalError("Couldn't find \(filename) in main bundle.")
+        else {
+            fatalError("Couldn't find \(filename) in main bundle.")
     }
 
     do {
