@@ -13,6 +13,7 @@ final class ModelData: ObservableObject {
     // @Published is for the changes to be publish when data changes so the subscribers can pick up the change
     @Published var landmarks: [Landmark] = load("landmarkData.json")
     var hikes: [Hike] = load("hikeData.json")
+    @Published var profile = Profile.default
 
     
     var features: [Landmark] {
