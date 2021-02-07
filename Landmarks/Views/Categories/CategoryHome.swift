@@ -28,7 +28,7 @@ struct CategoryHome: View {
                 .listRowInsets(EdgeInsets())
             }
                .listStyle(InsetListStyle())
-                .navigationTitle("Featured")
+               .navigationTitle("Featured")
                .toolbar {
                     Button(action: { showingProfile.toggle() }) {
                         Image(systemName: "person.crop.circle")
