@@ -35,6 +35,11 @@ struct Landmark: Hashable, Codable, Identifiable {
     var image: Image {
         Image(imageName)
     }
+    
+    // This adds a computed property to this fle that retunrs the feaured image if it exists
+    var featureImage: Image? {
+        isFeatured ? Image(imageName + "_feature"): nil
+    }
 
     // Manage information about Landmark location
     private var coordinates: Coordinates

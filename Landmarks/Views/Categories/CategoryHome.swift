@@ -40,7 +40,7 @@ struct CategoryHome: View {
                     .environmentObject(modelData)
                }
         }
-    }
+    }    
 }
 
 struct CategoryHome_Previews: PreviewProvider {
