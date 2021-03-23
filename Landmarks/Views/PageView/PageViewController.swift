@@ -55,8 +55,7 @@ struct PageViewController<Page: View>: UIViewControllerRepresentable {
 
         func pageViewController(
             _ pageViewController: UIPageViewController,
-            viewControllerAfter viewController: UIViewController) -> UIViewController?
-        {
+            viewControllerAfter viewController: UIViewController) -> UIViewController? {
             guard let index = controllers.firstIndex(of: viewController) else {
                 return nil
             }
